@@ -1,0 +1,26 @@
+<div id="steps">
+  <ng-container *ngFor="let step of steps">
+    <div class="step" *ngIf="step.selected">
+      <div class="step-img">
+        <img [src]="step.img" *ngIf="step.img" alt="">
+      </div>
+      <div class="title">{{step.title}}</div>
+
+      <div class="choices" *ngIf="step.choices">
+
+        <div class="choice" (click)="selectChoice(choice,step)" [ngClass]="{'selected':choice.selected}" *ngFor="let choice of step.choices">
+          <img [src]="choice.img" alt="" class="choice-img">
+          <div class="choice-title">{{choice.title}}</div>
+        </div>
+
+
+      </div>
+
+      <form class="form-choice" *ngIf="step.type == 'input'" (ngSubmit)="setValue(step.key,step)">
+        <input [type]="step.inputType" [(ngModel)]="inputValue" name="value" required>
+        <button type="submit"><img src="/assets/icons/png/next.png" alt=""></button>
+        <!-- input[type="button" value=""] -->
+      </form>
+    </div>
+  </ng-container>
+</div>

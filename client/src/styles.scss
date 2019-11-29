@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+html,body{
+  margin: 0;
+  padding:0;
+  // background-color: #f1f2f6;
+}
+
+*{
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  color: #2f3542;
+}
+
+a{
+  text-decoration: none;
+}
+
+.stand-out{
+  color: #FFD422;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
