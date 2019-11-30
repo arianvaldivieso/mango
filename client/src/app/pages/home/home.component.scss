@@ -1,0 +1,80 @@
+@keyframes caousel {
+
+  0% {
+    background-position: left bottom;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}
+
+
+#carousel-home{
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-image: url('./../../../assets/images/carousel.svg');
+  background-size: auto 40%;
+  height: 88vh;
+  position: relative;
+  // animation-duration: 5s;
+  // animation-name: caousel;
+  // animation-iteration-count: infinite;
+  // animation-direction: alternate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  padding: 20px 10px;
+
+  @media screen and (min-width: 900px) {
+    // background-size: 200% 80%;
+    height: 100vh;
+    justify-content: center;
+    // align-items: flex-end;
+    // background-position: left bottom;
+    .titles{
+      margin-top: 0;
+      .title{
+        font-size: 5rem;
+      }
+
+      .sub-title{
+        font-size: 2rem
+      }
+    }
+  }
+
+  .titles{
+    margin-top: 30px;
+  }
+  .title{
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 600;
+    >span{
+      font-size: 3rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .sub-title{
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .button-init{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 15px 30px;
+    font-size: 2.5rem;
+    border-radius: 5px;
+    background-image: linear-gradient(to left,#FFD422,lighten(#FFD422, 1.5));
+    margin-top: 60px;
+    // position: absolute;
+    // bottom: 50px;
+  }
+}
