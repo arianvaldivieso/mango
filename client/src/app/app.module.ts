@@ -21,6 +21,14 @@ import { StepsComponent } from './components/steps/steps.component';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { FormComponent } from './pages/form/form.component';
+import { QuestionComponent } from './components/question/question.component';
+
+/**
+ * material
+ */
+
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -29,7 +37,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     StepsComponent,
     CarouselHomeComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FormComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +49,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     ParticlesModule,
     FormsModule,
     StorageServiceModule,
-    CarouselModule
+    CarouselModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
