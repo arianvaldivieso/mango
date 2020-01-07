@@ -1,0 +1,23 @@
+<div id="form">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="question" id="question-title">
+        </div>
+      </div>
+
+
+      <div class="col-md-6 col-12">
+        <div id="auto-text" [innerHTML]="autoTextString"></div>
+      </div>
+
+      <div class="col-md-6 col-12">
+        <app-question [question]="question" (nextQuestion)="nextQuestion($event)" (autoText)="autoText($event)"></app-question>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

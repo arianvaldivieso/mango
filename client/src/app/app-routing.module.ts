@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { HomeComponent } from './pages/home/home.component';
+import { FormComponent } from './pages/form/form.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
@@ -13,6 +14,9 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
+
+  { path: 'form',      component: FormComponent },
+
   { path: '**', component: NotFoundComponent }
 ];
 

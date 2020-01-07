@@ -1,0 +1,20 @@
+<!-- {{question | json}} -->
+
+<mat-chip-list>
+  <mat-chip>Papadum</mat-chip>
+  <mat-chip>Naan</mat-chip>
+  <mat-chip>Dal</mat-chip>
+</mat-chip-list>
+
+
+<div class="choices" *ngIf="question.type == 'choice'">
+
+  <div class="choice" (click)="selectChoice(choice,question)" *ngFor="let choice of question.choices">
+    <img [src]="choice.img" [alt]="choice.img" class="choice-img">
+    <div class="choice-title">
+      {{choice.title}}
+    </div>
+  </div>
+
+  <!-- {{question.choices | json}} -->
+</div>
