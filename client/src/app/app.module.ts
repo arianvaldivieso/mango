@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -29,6 +30,7 @@ import { QuestionComponent } from './components/question/question.component';
  */
 
 import { MatChipsModule } from '@angular/material/chips';
+import { StageComponent } from './components/stage/stage.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { MatChipsModule } from '@angular/material/chips';
     HomeComponent,
     NotFoundComponent,
     FormComponent,
-    QuestionComponent
+    QuestionComponent,
+    StageComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { MatChipsModule } from '@angular/material/chips';
     FormsModule,
     StorageServiceModule,
     CarouselModule,
-    MatChipsModule
+    MatChipsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

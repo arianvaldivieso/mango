@@ -1,20 +1,102 @@
-<!-- {{question | json}} -->
-
-<mat-chip-list>
-  <mat-chip>Papadum</mat-chip>
-  <mat-chip>Naan</mat-chip>
-  <mat-chip>Dal</mat-chip>
-</mat-chip-list>
+<div class="question" *ngIf="question && !choice">
 
 
-<div class="choices" *ngIf="question.type == 'choice'">
-
-  <div class="choice" (click)="selectChoice(choice,question)" *ngFor="let choice of question.choices">
-    <img [src]="choice.img" [alt]="choice.img" class="choice-img">
-    <div class="choice-title">
-      {{choice.title}}
-    </div>
+  <div class="title">
+     {{question.title}}
   </div>
 
-  <!-- {{question.choices | json}} -->
+  <div class="choices" *ngIf="question.type == 'choice' && question.required">
+    <div class="choice" (click)="selectChoice(choice)" *ngFor="let choice of question.choices">
+      <img [src]="choice.img" [alt]="choice.img" class="choice-img" *ngIf="choice.img">
+      <div class="choice-title" *ngIf="choice.title">
+        {{choice.title}}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="choices" *ngIf="question.type == 'simple' && question.required">
+    <div class="choice mini" (click)="selectOptionSimple(question,option)"  *ngFor="let option of question.options">
+      <div class="choice-title" *ngIf="option">
+        <span *ngIf="option.title == ''">{{option.value}}</span>
+        <span *ngIf="option.title != ''">{{option.title}}</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="choices" *ngIf="!question.required && !option">
+
+    <div class="choice" (click)="insideQuestion(question)">
+      <img [src]="question.img" [alt]="question.img" class="choice-img" *ngIf="question.img">
+      <div class="choice-title">Se ho bisogno di un servizio "{{question.title}}"</div>
+    </div>
+
+    <div class="choice" (click)="selectOptionSimple(question,option)">
+      <img [src]="'/assets/icons/png/forbidden.png'" [alt]="'/assets/icons/png/forbidden.png'" class="choice-img" *ngIf="question.img">
+      <div class="choice-title">Non ho bisogno di un servizio "{{question.title}}"</div>
+    </div>
+
+  </div>
+
+  <div class="title-grand" *ngIf="!question.required && option && question.question">
+    {{question.question.title}}
+    <div class="text-muted text-secondary" *ngIf="question.question.note">{{question.question.note}}</div>
+  </div>
+
+  <div class="title-grand" *ngIf="question.note && option">
+    <div class="text-muted text-secondary" *ngIf="question.note">{{question.note}}</div>
+  </div>
+
+  <div class="choices" *ngIf="question.type == 'multiple' && !question.required && option">
+
+
+    <div class="choice mini" (click)="selectOptionSimple(question,option)"  *ngFor="let option of question.question.options">
+      <div class="choice-title" *ngIf="option">
+        <span *ngIf="option.title == ''">{{option.value}}</span>
+        <span *ngIf="option.title != ''">{{option.title}}</span>
+      </div>
+    </div>
+
+
+  </div>
 </div>
+
+<div id="choice" *ngIf="choice">
+  <ng-container *ngFor="let question of choice.questions">
+    <div class="question" *ngIf="question.selected">
+      <div class="title">{{question.title}}</div>
+
+      <div class="choices" *ngIf="question.type == 'multiple'">
+        <div class="choice mini" (click)="selectOption(question,option)" *ngFor="let option of question.options">
+          <div class="choice-title" *ngIf="option">
+            <span *ngIf="option.title == ''">{{option.value}}</span>
+            <span *ngIf="option.title != ''">{{option.title}}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </ng-container>
+</div>
+
+
+<div id="option" *ngIf="option">
+  <div class="choices">
+    <div class="choice" (click)="selectOptionSimple(question,option)" *ngFor="let option of question.options">
+      <div class="choice-title" *ngIf="option">
+        <span *ngIf="option.title == ''">{{option.value}}</span>
+        <span *ngIf="option.title != ''">{{option.title}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+

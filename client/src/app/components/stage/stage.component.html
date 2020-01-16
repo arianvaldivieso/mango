@@ -1,0 +1,10 @@
+<div class="stage" *ngIf="stage">
+  <div class="stage-title">{{stage.title}}</div>
+
+  <div class="questions" *ngIf="stage.questions">
+    <ng-container *ngFor="let question of stage.questions">
+      <app-question *ngIf="question.selected" (autoText)="outputText($event)" (questionOutput)="moveQuestion($event)" [question]="question"></app-question>
+    </ng-container>
+  </div>
+
+</div>
