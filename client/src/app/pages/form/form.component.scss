@@ -20,3 +20,97 @@
     text-align: center;
   }
 }
+
+#auto-text{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+
+@keyframes typewriter {
+  0%, 100% {
+    width: 0;
+  }
+  20%, 80% {
+    width: 100%;
+  }
+}
+
+@keyframes caret {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.type-it {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter;
+  display: inline-block;
+  position: relative;
+  animation-duration: 10s;
+  // animation-timing-function: steps(25, end);
+  // animation-iteration-count: 1;
+  // background-color: red;
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  animation-fill-mode: both;
+}
+
+
+// .type-it::after {
+
+//   position: absolute;
+//   right: 0;
+//   animation: caret;
+//   animation-duration: 1s;
+//   animation-timing-function: steps(1, end);
+// }
+
+// .type-it:last-child{
+
+//   &:after{
+//     content: "|";
+//   }
+// }
+
+
+.typewriter {
+    font-family: Courier, monospace;
+    display: inline-block;
+}
+
+.typewriter-text {
+    display: inline-block;
+    overflow: hidden;
+    letter-spacing: 2px;
+    animation: typing 3s steps(30, end), blink .75s step-end infinite;
+    white-space: nowrap;
+    font-size: 2rem;
+    font-weight: 700;
+    border-right: none;
+    box-sizing: border-box;
+}
+
+@keyframes typing {
+    from {
+        width: 0%
+    }
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink {
+    from, to {
+        border-color: transparent
+    }
+    50% {
+        border-color: #434343;
+    }
+}

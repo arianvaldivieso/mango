@@ -31,6 +31,8 @@ import { QuestionComponent } from './components/question/question.component';
 
 import { MatChipsModule } from '@angular/material/chips';
 import { StageComponent } from './components/stage/stage.component';
+// import { TypewriterModule } from "ng2-typewriter";
+// import { TypingAnimationModule } from 'angular-typing-animation'
 
 @NgModule({
   declarations: [
@@ -54,7 +56,7 @@ import { StageComponent } from './components/stage/stage.component';
     StorageServiceModule,
     CarouselModule,
     MatChipsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

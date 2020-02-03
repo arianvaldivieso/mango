@@ -9,7 +9,12 @@
 
 
       <div class="col-md-6 col-12">
-        <div id="auto-text">{{text}}</div>
+
+        <div class="typewriter">
+          <div class="typewriter-text" *ngFor="let string of strings;let i = index">{{string}}</div>
+          <span id="auto-text"></span>
+        </div>
+
       </div>
 
       <div class="col-12 col-md-6">

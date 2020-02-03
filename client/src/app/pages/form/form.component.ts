@@ -5,6 +5,8 @@ import { QuestionService } from '../../services/question/question.service';
 import { StageService } from '../../services/stage/stage.service';
 import { LocalStorageService } from '../../services/local-storage.service';
 
+// import { TypewriterService, TypewriterContent } from "ng2-typewriter";
+
 import TypeIt from 'typeit';
 
 @Component({
@@ -19,6 +21,8 @@ export class FormComponent implements OnInit {
   questions;
   tempQuestion:any;
   text:string = '';
+  instance;
+  strings = [];
 
   constructor(
     private _question:QuestionService,
@@ -28,6 +32,33 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     // this.getFirstQuestions();
+
+
+    this.instance = new TypeIt("#auto-text", {
+      speed: 100,
+      startDelay: 900,
+      waitUntilVisible:true
+    }).go();
+
+    // this.instance = new TypeIt("#auto-text", {
+    //   strings: "After 500ms, pause for 3 seconds and resume."
+    // }).go();
+
+    // setTimeout(() => {
+    //   instance.freeze();
+    //   console.log('pause')
+
+    //   setTimeout(() => {
+    //     instance.unfreeze();
+    //     console.log('start')
+    //   }, 3000);
+    // }, 3000);
+
+
+
+
+
+
 
     this.getStages();
     this._localStorage.clear();
@@ -81,6 +112,32 @@ export class FormComponent implements OnInit {
 
   completeText($event){
     this.text += ' '+$event.text;
+     // this.instance.unfreeze();
+
+
+    this.strings.push(' '+$event.text);
+
+    // let class = ".string-"+(this.strings.length -1);
+
+    this.instance = new TypeIt("#string-"+(this.strings.length -1), {
+      speed: 100,
+      startDelay: 900,
+      string:' '+$event.text,
+      waitUntilVisible:true
+    }).go();
+
+    console.log(this.strings.length)
+
+
+    // this.instance.reset();
+    // this.instance.type(' '+$event.text);
+
+    // this.instance.freeze();
+
+
+
+
+
   }
 
   childrens($event):void{
