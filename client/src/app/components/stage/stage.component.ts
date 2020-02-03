@@ -26,7 +26,7 @@ export class StageComponent implements OnInit {
     this.stage.questions[index].selected = false;
 
     if (this.stage.questions[index + 1] == undefined) {
-      alert('pasar al siguiente stage')
+      // alert('pasar al siguiente stage')
       this.stageOutput.emit({stage:this.stage});
     }else{
       this.stage.questions[index + 1].selected = true;

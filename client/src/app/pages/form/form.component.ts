@@ -83,7 +83,7 @@ export class FormComponent implements OnInit {
     this.stages[index].selected = false;
 
     if (this.stages[index + 1] == undefined) {
-      alert('finalizado todo')
+      // alert('finalizado todo')
     }else{
       this.stages[index + 1].selected = true;
     }
