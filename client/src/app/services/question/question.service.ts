@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class QuestionService {
 
-  _endpoint:string = 'http://192.168.1.100:3000';
+  _endpoint:string = 'http://mangoproject.it:3000';
 
   constructor(
     private _http:HttpClient
