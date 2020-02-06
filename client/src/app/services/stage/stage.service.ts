@@ -8,7 +8,7 @@ import { QuestionService } from '../../services/question/question.service';
 })
 export class StageService {
 
-  _endpoint:string = 'http://mangoproject.it:3000';
+  _endpoint:string = 'http://quantocostaristrutturare.com:3000';
 
   constructor(
     private _http:HttpClient,
